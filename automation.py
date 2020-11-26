@@ -4,6 +4,33 @@ import subprocess
 import psutil
 import time
 
+def execute_cmd(cmd:str, shell:bool=True)->int:
+    '''
+    @param cmd(str) : cmd is a string which you want to execute with shell
+    @param shell(bool) : shell is set to True to execute all commands in shell without any restrictions
+
+    return 'returncode'(int) : 0 for successful.
+                                any other num for unsuccessful command or if any error is thrown by the command.
+
+    '''
+    print("Executing cmd '%s'" %(cmd))
+    returncode = -1
+    ### safety code ###
+    restricted_cmds = ('rm',) # add your restricted cmds
+    words = cmd.split(' ')
+    for word in words :
+        if word in restricted_cmds :
+            print("'%s' word is restricted. Hence can't execute the following cmd %s" %(word,cmd))
+            return returncode
+    #######################
+    cmdinstance = subprocess.run(cmd,shell=shell)
+    returncode = cmdinstance.returncode
+    if returncode == 0:
+        print("Cmd successful : '%s'" %(cmd))
+    else :
+        print("Unsuccessful cmd : '%s'" %(cmd))
+    return returncode
+
 def show_desktop():
     pyautogui.hotkey('winleft','d')
 
@@ -59,7 +86,9 @@ def locate(image_list):
 
 
 def main():
-    pass
+    cmd = 'dir'
+    x = execute_cmd(cmd)
+    print(x)
 
 
 if __name__ == "__main__":
