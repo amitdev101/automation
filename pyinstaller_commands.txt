@@ -1,0 +1,7 @@
+1. pyi-makespec --onefile main.py
+2. now open main.spec file and add your directories (for example i have set all mypath wrt sound directories for sound files)
+    ex my_data = [("sound","sound"),
+                    ]
+3. now set a.data = my_data
+4. now run command pyinstaller --onefile main.spec
+5. now you have your exe build
