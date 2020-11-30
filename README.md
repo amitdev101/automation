@@ -3,5 +3,5 @@
 
 # Automation
 
-Some automation techniques applied with pyautogui,subprocess,shell scripts, processes, Keylogger etc.
+Some automation techniques applied with pyautogui, subprocess, shell scripts, processes, Keylogger etc.
 
