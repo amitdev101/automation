@@ -1,0 +1,4 @@
+1. If you need to find requirement of your virtual env. Then you should use following command.
+    "pip freeze > requirements.txt" -> it will save all the module/packages installed with version number in a txt file.
+
+2. 
