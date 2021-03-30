@@ -1,0 +1,3 @@
+To print output and save data in a file use the following command
+./mybash.sh 2>&1 | tee SomeFile.txt 
+
